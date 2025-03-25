@@ -15,7 +15,7 @@ const locations = [
     { title: "14 MAIN ACADEMIC BUILDING", coords: "441,372,278,283", shape: "rect", image: "images/main-building.jpg", description: "The Main Academic Building houses several colleges and administrative offices." },
     { title: "15 GAZEBO", coords: "62,358,110,398", shape: "rect", image: "images/gazebo.jpg", description: "A shaded area for relaxation." },
     { title: "16 GRANDSTAND", coords: "554,462,682,507", shape: "rect", image: "images/grandstand.jpg", description: "A seating area for sports events and ceremonies." },
-    { title: "17 OVAL", coords: "500,523,634,636", shape: "rect", image: "images/oval.jpg", description: "An area for running and sports events." },
+    { title: "17 OVAL", coords: "500,523,634,636", shape: "rect", image: "images/oval1.jpg", description: "An area for running and sports events." },
     { title: "18 TAHANAN NG ATLETA", coords: "499,653,582,722", shape: "rect", image: "images/tahanan-atleta.jpg", description: "A dormitory for student-athletes." },
     { title: "19 GABRIELA SILANG BUILDING", coords: "392,676,475,765", shape: "rect", image: "images/gabriela.jpg", description: "A building named after Gabriela Silang." },
     { title: "20 FOOD AND NUTRITION BUILDING", coords: "87,409,157,492", shape: "rect", image: "images/food-nutrition.jpg", description: "A facility for food and nutrition studies." },
@@ -48,8 +48,8 @@ const locations = [
     { title: "47 INFORMATION TECHNOLOGY BUILDING", coords: "1202,42,1255,85", shape: "rect", image: "images/it_building.jpg", description: "Houses IT and computer science programs." },
     { title: "48 ANTIQUE HOUSE", coords: "1127,51,1173,82", shape: "rect", image: "images/antique_house.jpg", description: "A historical house showcasing antique collections." },
     { title: "49 GRADUATE SCHOOL", coords: "1297,6,1339,42", shape: "rect", image: "images/graduate_school.jpg", description: "Dedicated to postgraduate studies and research." },
-    { title: "50 HASMIN BUILDING", coords: "1374,7,1426,68", shape: "rect", image: "images/hasmin_building.jpg", description: "A multi-purpose academic building." }
-    
+    { title: "50 HASMIN BUILDING", coords: "1374,7,1426,68", shape: "rect", image: "images/hasmin_building.jpg", description: "A multi-purpose academic building." },
+    { title: "15 GAZEBO", coords: "512,506,414,483", shape: "rect", image: "images/gazebo1.jpg", description: "A shaded area for relaxation." }
 ];
 
 function generateMapAreas() {
