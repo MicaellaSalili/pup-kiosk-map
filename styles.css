@@ -47,11 +47,11 @@ body::before {
 }
 
 .modal {
-    display: none;
+    
     position: fixed;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -35%);
     background-color: #ede3da; 
     padding: 20px;
     border-radius: 18px;
@@ -60,7 +60,6 @@ body::before {
     text-align: center;
     z-index: 1000;
     font-family: 'Poppins', sans-serif;
-    border: 6px solid #7a0c0c; 
     animation: fadeIn 0.3s ease-in-out;
 }
 
