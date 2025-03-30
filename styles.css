@@ -20,7 +20,7 @@ body::before {
 
 .header {
     color: #7a0c0c;
-    font-size: 1.8em; 
+    font-size: 1.3em; 
     font-weight: bold;
     text-align: center;
 }
@@ -29,13 +29,12 @@ body::before {
     justify-content: center;
     align-items: center;
     background-color: white;
-    padding: 20px;
+    padding: 10px;
     border: 8px solid #7a0c0c;
     width: 80vw; 
-    max-width: 920px; 
-    margin: 25px auto;
+    max-width: 1000px; 
+    margin: auto;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-    border-radius: 12px;
     overflow: hidden; 
 }
 
@@ -51,13 +50,10 @@ body::before {
     position: fixed;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -35%);
-    background-color: #ede3da; 
-    padding: 20px;
-    border-radius: 18px;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
-    width: 300px; 
-    text-align: center;
+    transform: translate(-50%, -45%);
+    width: 300px;
+    padding: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     z-index: 1000;
     font-family: 'Poppins', sans-serif;
     animation: fadeIn 0.3s ease-in-out;
@@ -66,7 +62,6 @@ body::before {
 .modal-content {
     background-color: #f8f5f2; 
     padding: 15px;
-    border-radius: 12px;
     text-align: center;
     position: relative;
 }
@@ -76,8 +71,7 @@ body::before {
     max-width: 250px; 
     height: 180px;
     object-fit: cover;
-    border-radius: 12px;
-    border: 5px solid #b6a694; 
+    border: 5px solid #7a0c0c; 
     background-color: white;
     padding: 6px;
 }
