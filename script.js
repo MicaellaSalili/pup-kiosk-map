@@ -59,34 +59,41 @@ function openModal(title, imageSrc, description, event) {
     document.getElementById("modal-title").innerText = title;
     document.getElementById("modal-image").src = imageSrc;
     document.getElementById("modal-description").innerText = description;
-    
-    // Ensure the modal is displayed first to calculate dimensions
+
+    modal.style.visibility = "hidden";
     modal.style.display = "block";
 
-    // Get mouse coordinates
     let mouseX = event.clientX;
     let mouseY = event.clientY;
 
-    // Adjust position to keep modal within viewport
     const modalWidth = modal.offsetWidth;
     const modalHeight = modal.offsetHeight;
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
+    const windowWidth = document.documentElement.clientWidth; 
+    const windowHeight = document.documentElement.clientHeight;
+    const offset = 15;
 
-    if (mouseX + modalWidth > windowWidth) {
-        mouseX -= modalWidth + 10; // Shift left if overflowing
-    } else {
-        mouseX += 10; // Slight offset from cursor
+    let finalX = mouseX + offset;
+    let finalY = mouseY + offset;
+
+    if (finalX + modalWidth > windowWidth) {
+        finalX = windowWidth - modalWidth - offset;
     }
 
-    if (mouseY + modalHeight > windowHeight) {
-        mouseY -= modalHeight + 10; // Shift up if overflowing
-    } else {
-        mouseY += 10; // Slight offset from cursor
+    if (finalY + modalHeight > windowHeight) {
+        finalY = windowHeight - modalHeight - offset;
     }
 
-    modal.style.left = `${mouseX}px`;
-    modal.style.top = `${mouseY}px`;
+    if (finalX < 0) {
+        finalX = offset;
+    }
+
+    if (finalY < 0) {
+        finalY = offset;
+    }
+
+    modal.style.left = `${finalX}px`;
+    modal.style.top = `${finalY}px`;
+    modal.style.visibility = "visible";
 }
 
 function closeModal() {
@@ -96,7 +103,7 @@ function closeModal() {
     }
 }
 
-// Modify event listeners to pass the event object
+
 function generateMapAreas() {
     const map = document.getElementById("pup-map");
 
