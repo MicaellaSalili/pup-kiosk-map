@@ -62,8 +62,11 @@ function generateMapAreas() {
         area.href = "#";
         area.alt = location.title;
         area.title = location.title;
-        area.onclick = function () {
+        area.onmouseover = function () {
             openModal(location.title, location.image, location.description);
+        };
+        area.onmouseout = function () {
+            closeModal();
         };
         map.appendChild(area);
     });
@@ -82,7 +85,8 @@ function closeModal() {
     document.getElementById("modal").style.display = "none";
 }
 
-document.querySelector(".close").addEventListener("click", closeModal);
+// Remove the event listener for the close button click since it's not needed for hover
+// The onmouseout will handle closing the modal
 
 window.onload = function () {
     generateMapAreas();

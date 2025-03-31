@@ -24,6 +24,7 @@ body::before {
     font-weight: bold;
     text-align: center;
 }
+
 .map-container {
     display: flex;
     justify-content: center;
@@ -98,8 +99,10 @@ body::before {
     cursor: pointer;
     font-weight: bold;
     color: #7a0c0c; 
-    transition: color 0.3s ease-in-out;
+    transition: color 0.6s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1); /* Smoother cubic-bezier timing */
 }
+
 .close:hover {
     color: #b6a694; 
+    transform: scale(1.1);
 }
