@@ -52,39 +52,73 @@ const locations = [
     { title: "15 GAZEBO", coords: "512,506,414,483", shape: "rect", image: "images/gazebo1.jpg", description: "A shaded area for relaxation." }
 ];
 
+function openModal(title, imageSrc, description, event) {
+    const modal = document.getElementById("modal");
+    if (!modal) return;
+
+    document.getElementById("modal-title").innerText = title;
+    document.getElementById("modal-image").src = imageSrc;
+    document.getElementById("modal-description").innerText = description;
+    
+    // Ensure the modal is displayed first to calculate dimensions
+    modal.style.display = "block";
+
+    // Get mouse coordinates
+    let mouseX = event.clientX;
+    let mouseY = event.clientY;
+
+    // Adjust position to keep modal within viewport
+    const modalWidth = modal.offsetWidth;
+    const modalHeight = modal.offsetHeight;
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+
+    if (mouseX + modalWidth > windowWidth) {
+        mouseX -= modalWidth + 10; // Shift left if overflowing
+    } else {
+        mouseX += 10; // Slight offset from cursor
+    }
+
+    if (mouseY + modalHeight > windowHeight) {
+        mouseY -= modalHeight + 10; // Shift up if overflowing
+    } else {
+        mouseY += 10; // Slight offset from cursor
+    }
+
+    modal.style.left = `${mouseX}px`;
+    modal.style.top = `${mouseY}px`;
+}
+
+function closeModal() {
+    const modal = document.getElementById("modal");
+    if (modal) {
+        modal.style.display = "none";
+    }
+}
+
+// Modify event listeners to pass the event object
 function generateMapAreas() {
     const map = document.getElementById("pup-map");
 
-    locations.forEach(location => {
+    if (!map) return;
+
+    locations.forEach((location) => {
         const area = document.createElement("area");
         area.shape = location.shape;
         area.coords = location.coords;
         area.href = "#";
         area.alt = location.title;
         area.title = location.title;
-        area.onmousemove = function () {
-            openModal(location.title, location.image, location.description);
-        };
-        area.onmouseout = function () {
-            closeModal();
-        };
+
+        area.addEventListener("mouseenter", (event) => openModal(location.title, location.image, location.description, event));
+        area.addEventListener("mouseleave", closeModal);
+
         map.appendChild(area);
     });
 
-    imageMapResize();
+    if (typeof imageMapResize === "function") {
+        imageMapResize();
+    }
 }
 
-function openModal(title, imageSrc, description) {
-    document.getElementById("modal-title").innerText = title;
-    document.getElementById("modal-image").src = imageSrc;
-    document.getElementById("modal-description").innerText = description;
-    document.getElementById("modal").style.display = "block";
-}
-
-function closeModal() {
-    document.getElementById("modal").style.display = "none";
-}
-
-window.onload = function () {
-    generateMapAreas();
-};
+window.addEventListener("load", generateMapAreas);

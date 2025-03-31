@@ -48,10 +48,7 @@ body::before {
 
 .modal {
     display: none;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -45%);
+    position: absolute; /* Change from fixed to absolute */
     width: 300px;
     padding: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
@@ -59,6 +56,7 @@ body::before {
     font-family: 'Poppins', sans-serif;
     animation: fadeIn 0.3s ease-in-out;
 }
+
 
 .modal-content {
     background-color: #f8f5f2; 
